@@ -8,12 +8,7 @@
         <input type="color" name="color" defaultvalue="#336699" value="#336699">
         <button> show </button>
     </form>
-        <?php
-        if(isPost()) {
-            $columns = getRequestVariable('columns',10);
-            $rows = getRequestVariable('rows',10);
-            $color = getRequestVariable('color','#369');
-        }
-        table($columns,$rows,$color);
+        <?php   table($columns,$rows,$color);
+                historyShow($m_table_cookie);
         ?>
 </div>

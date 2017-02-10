@@ -32,4 +32,3 @@ $all = 'width: 2.5em; text-align: right; padding-right: .3em;';
 $columns=11;
 $rows   =11;
 $color  ="#369";
-?>

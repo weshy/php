@@ -70,9 +70,9 @@ ul.navbar-nav > li > a:active {
 #footer {
     display: block;
     position: absolute;
-    bottom: 8px;
+    bottom: 0.3em;
     box-sizing: border-box;
-    width: calc(100% - 16px);
+    width: 100%;
     background: linear-gradient(to bottom, #ff6d41 0%, #c40a00 100%);
 }
 
