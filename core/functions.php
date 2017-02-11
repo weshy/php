@@ -6,8 +6,8 @@ function menu($menu, $direction='line'){
 
     echo '<ul class="nav navbar-nav"' . $menuStyle;
         foreach ($menu as $key => $value) {
-            if ($direction=='line') {echo '<li><a href="' . $value['href'] . '">'. $value['text'].'</a></li>';}
-            else {echo '<li><a href="' . $value['href'] . '" class = "noUnderLine">'. $value['text'].' v </a></li>';}
+            if ($direction=='line') echo '<li><a href="' . $value['href'] . '">'. $value['text'].'</a></li>';
+            else echo '<li><a href="' . $value['href'] . '" class = "noUnderLine">'. $value['text'].' v </a></li>';
         }
     echo '</ul>';
 }
@@ -39,23 +39,31 @@ function table($rows,$columns,$color=''){
 }
 
 function historyShow ($cookieHistory){
-    echo "<table><tr><td>Колонок</td><td>Рядов</td><td>Цвет</td><td>Отметка времени</td></tr>";
+    echo '<div style="float:right;"><p>История вывода таблиц:</p><table><tr>';
     foreach ($cookieHistory as $val) {
-        echo "<tr><td>" . $val['col'] . "</td><td>" . $val['row'] . '</td><td><div style="background:' . $val['color'] . ';"">&nbsp;</div></td><td>' . date("d-m-Y H:i:s", $val['date']) . "</td> </tr>";
+        echo '<tr><td class="number-format">'
+                        . $val[0] . '</td><td><span class="multiple-sign">&#215;</span></td><td class="number-format">'
+                        . $val[1] . '</td><td><div class="history-show-color" style="background:'
+                        . $val[2] . ';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td>'
+                        . date("d-m-Y H:i:s", $val[3]) . "</td> </tr>";
     }
-    echo "</table>";
+    echo "</table></div>";
 
+}
+
+$m_table_cookie = [];
+
+if (!empty($_COOKIE['m_table'])) {
+    $m_table_cookie = unserialize($_COOKIE['m_table']);
 }
 
 if(isPost()) {
     $columns = getRequestVariable('columns',10);
     $rows = getRequestVariable('rows',10);
     $color = getRequestVariable('color','#369');
+    $date = time();
+    global $m_table_cookie;
+    array_unshift($m_table_cookie, [$columns,$rows,$color,time()]);
+    $m_table_cookie = array_slice($m_table_cookie,0,30);
+    setcookie('m_table',serialize($m_table_cookie));
 }
-
-$m_table_cookie = [];
-if (!empty($_COOKIE['m_table'])) {
-    $m_table_cookie = unserialize($_COOKIE['m_table']);
-}
-array_unshift($m_table_cookie, ['col' => $columns, 'row' => $rows, 'color' => $color, 'date' => time()]);
-setcookie('m_table',serialize($m_table_cookie));

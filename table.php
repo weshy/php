@@ -1,4 +1,4 @@
-<div class="container">
+<div class="main-container">
     <div class="page-header">
         <h1 class="page-title">Таблица умножения</h1>
     </div>
@@ -8,7 +8,8 @@
         <input type="color" name="color" defaultvalue="#336699" value="#336699">
         <button> show </button>
     </form>
-        <?php   table($columns,$rows,$color);
-                historyShow($m_table_cookie);
-        ?>
+        <?php table($columns,$rows,$color); ?>
+</div>
+<div class="main-container">
+        <?php historyShow($m_table_cookie); ?>
 </div>
