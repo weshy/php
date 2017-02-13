@@ -67,4 +67,6 @@ if(isPost()) {
     array_unshift($m_table_cookie, [$columns,$rows,$color,time()]);
     $m_table_cookie = array_slice($m_table_cookie,0,30);
     setcookie('m_table',serialize($m_table_cookie));
+    $f = fopen('table.history.csv', 'a');
+    fputcsv($f, [$columns,$rows,$color,time()]);
 }
