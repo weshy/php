@@ -22,7 +22,7 @@ function getRequestVariable($key,$value){
 
 function table($rows,$columns,$color=''){
 
-    echo "<table style=\"border: 1px solid #369;\">";
+    echo "<table>";
     if ('' == $color) $color = $GLOBALS['red'];
     else $color = 'background: '. $color .'; color: white; font-weight: bold;';
     
@@ -39,16 +39,17 @@ function table($rows,$columns,$color=''){
 }
 
 function historyShow ($cookieHistory){
-    echo '<div style="float:right;"><p>История вывода таблиц:</p><table><tr>';
-    foreach ($cookieHistory as $val) {
-        echo '<tr><td class="number-format">'
-                        . $val[0] . '</td><td><span class="multiple-sign">&#215;</span></td><td class="number-format">'
-                        . $val[1] . '</td><td><div class="history-show-color" style="background:'
-                        . $val[2] . ';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td>'
-                        . date("d-m-Y H:i:s", $val[3]) . "</td> </tr>";
+    if (count($cookieHistory)) {
+        echo '<div style="float:right;"><p>История вывода таблиц:</p><table><tr>';
+        foreach ($cookieHistory as $val) {
+            echo '<tr><td class="number-format">'
+                            . $val[0] . '</td><td><span class="multiple-sign">&#215;</span></td><td class="number-format">'
+                            . $val[1] . '</td><td><div class="history-show-color" style="background:'
+                            . $val[2] . ';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td>'
+                            . date("d-m-Y H:i:s", $val[3]) . "</td> </tr>";
+        }
+        echo "</table></div>";
     }
-    echo "</table></div>";
-
 }
 
 $m_table_cookie = [];

@@ -126,6 +126,7 @@ div.history-show-color {
 }
 
 table {
-    margin: 0;
-    padding-bottom: 0;
+    border-collapse: collapse;
+    border-right: 0.1em solid #336699;
+    border-bottom: 0.1em solid #336699;
 }
