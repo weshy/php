@@ -13,8 +13,8 @@ switch ($str_test) {
     case 'table'    :
        $inner_page = 'table.php';
        break;
-    case 'ToDo.list':
-       $inner_page = 'while.php';
+    case 'instagram':
+       $inner_page = 'instagram.php';
        break;
     case 'ending'   :
        $inner_page = 'ending.php';
