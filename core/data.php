@@ -2,7 +2,7 @@
 $menu = [
     ['href' => '/index.php?page=about', 'text' => 'обо мне'],
     ['href' => '/index.php?page=version', 'text' => 'версия php'],
-    ['href' => '/index.php?page=ToDo.list', 'text' => 'дела...'],
+    ['href' => '/index.php?page=instagram', 'text' => 'instagram'],
     ['href' => '/index.php?page=table', 'text' => 'Таблица'],
     ['href' => '/index.php?page=ending', 'text' => 'Окончания'],
     ['href' => '/index.php?page=display', 'text' => 'Фибоначи'],

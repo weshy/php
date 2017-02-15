@@ -27,6 +27,7 @@
     </div>
 
     <div id="mainPageBlock">
+
         <?php include $inner_page; ?>
     </div>
 
