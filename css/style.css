@@ -125,8 +125,10 @@ div.history-show-color {
     border-radius: 0.4em;
 }
 
+div.history-show-color a {
+    text-decoration: none;
+}
+
 table {
     border-collapse: collapse;
-    border-right: 0.1em solid #336699;
-    border-bottom: 0.1em solid #336699;
 }

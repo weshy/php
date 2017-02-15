@@ -1,5 +1,10 @@
 <?php  
 
+function pre_print_r($array_value){
+    return '<pre><p style="font-family: Helvetica, sans-serif; font-size: 6pt; font-weight: noramal;line-height: 1.1;">'
+            . print_r($array_value,true) . '</p></pre>';
+}
+
 function menu($menu, $direction='line'){
     $menuStyle = ' style="display: inline;">';
     if ('line' !== $direction ) $menuStyle = ' style="display: block;">';
@@ -22,7 +27,7 @@ function getRequestVariable($key,$value){
 
 function table($rows,$columns,$color=''){
 
-    echo "<table>";
+    echo '<table style="border-right: .1em solid '. $color .'; border-bottom: .1em solid '. $color .';">';
     if ('' == $color) $color = $GLOBALS['red'];
     else $color = 'background: '. $color .'; color: white; font-weight: bold;';
     
@@ -45,7 +50,8 @@ function historyShow ($cookieHistory){
             echo '<tr><td class="number-format">'
                             . $val[0] . '</td><td><span class="multiple-sign">&#215;</span></td><td class="number-format">'
                             . $val[1] . '</td><td><div class="history-show-color" style="background:'
-                            . $val[2] . ';">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td><td>'
+                            . $val[2] . ';">' . '<a href="/index.php?page=table&columns='
+                            . $val[0] .'&rows='. $val[1] .'&color=' . str_replace('#','',$val[2]) . '">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></div></td><td>'
                             . date("d-m-Y H:i:s", $val[3]) . "</td> </tr>";
         }
         echo "</table></div>";
@@ -69,4 +75,10 @@ if(isPost()) {
     setcookie('m_table',serialize($m_table_cookie));
     $f = fopen('table.history.csv', 'a');
     fputcsv($f, [$columns,$rows,$color,time()]);
+}
+elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $columns = getRequestVariable('columns',10);
+    $rows = getRequestVariable('rows',10);
+    $color = '#' . str_replace('#','',getRequestVariable('color','#336699'));
+    $date = time();
 }

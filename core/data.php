@@ -25,10 +25,8 @@ if ($time_of_day > 6) {
     }
 }
 
-$color = '#369';
+$color = '#336699';
 $red = 'background: '. $color .'; color: white; font-weight: bold;';
 $all = 'width: 2.5em; text-align: right; padding-right: .3em;';
-
 $columns=11;
 $rows   =11;
-$color  ="#369";

@@ -30,6 +30,10 @@
         <?php include $inner_page; ?>
     </div>
 
+<!-- <?= pre_print_r($_SERVER); ?>
+<?= pre_print_r($_SESSION); ?>
+<?= pre_print_r($_COOKIE); ?>
+ -->
     <footer id="footer">
         <div class="container">
             <p class="text-muted">© bj bjatta ® 2016 — <?= date('Y'); ?> at tc.belhard.com &#10004;</p>
