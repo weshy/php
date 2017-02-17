@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Exo+2");
 
+
 body * {
     font-family: "Exo 2", Helvetica, sans-serif;
 }
@@ -28,6 +29,7 @@ body * {
     margin: .5em;
     padding: 0;
     height: 80%;
+    width: 80%;
 }
 
 #topNavBar * , #footer * , #leftNavBar * {
@@ -131,4 +133,43 @@ div.history-show-color a {
 
 table {
     border-collapse: collapse;
+}
+
+.instagram-form {
+    width: 15em;
+    float: left;
+}
+
+img.instagram-photo {
+    width: 200px;
+    border-radius: 60% 1% 60% 4% / 25% 1% 25% 4%;
+}
+
+div.instagram-photo {
+    margin: 0.2em;
+    width: 210px;
+    float: left;
+}
+
+div.folder-tree{
+    line-height: 0.9;
+    width: 20em;
+}
+
+div.folder-tree a{
+    text-decoration: none;
+}
+
+div.file-content{
+    line-height: 0.9;
+    width: 60em;
+    font-size: 50%;
+    position: absolute;
+    top: 20em;
+    right: 50em;
+    border: 0.1em solid #ff6d41;
+    border-radius: 3%;
+    overflow-x: auto;
+    padding: 0.2em;
+
 }

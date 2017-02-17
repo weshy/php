@@ -1,14 +1,16 @@
 <?php
-$menu = [
-    ['href' => '/index.php?page=about', 'text' => 'обо мне'],
-    ['href' => '/index.php?page=version', 'text' => 'версия php'],
-    ['href' => '/index.php?page=instagram', 'text' => 'instagram'],
-    ['href' => '/index.php?page=table', 'text' => 'Таблица'],
-    ['href' => '/index.php?page=ending', 'text' => 'Окончания'],
-    ['href' => '/index.php?page=display', 'text' => 'Фибоначи'],
-    ['href' => '/index.php?page=index06', 'text' => 'Занятие 06'],
-    ['href' => '/index.php?page=index07', 'text' => 'Занятие 07']
-];
+
+define('MAIN_MENU',[
+    'main'      => ['item' => '⌂',          'title' => ''],
+    'ending'    => ['item' => 'Окончания',  'title' => 'Корзина товаров'],
+    'display'   => ['item' => 'Фибоначи',   'title' => 'Число Фибоначи'],
+    'table'     => ['item' => 'Таблица',    'title' => 'Таблица умножения'],
+    'instagram' => ['item' => 'instagram',  'title' => 'Инстаграм'],
+    'about'     => ['item' => 'folder tree','title' => 'Дерево папок'],
+    'version'   => ['item' => '⚙',          'title' => 'Служебная информация'],
+    ]);
+
+define('INSTAGRAM_DATA_BASE_FILE', 'data/instagram.csv');
 
 $time_of_day    = (int) date('H');
 $greetings      = 'Доброй ночи!';

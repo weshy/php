@@ -15,21 +15,10 @@ function average():float {
 	return 0;
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/display.css">
-	<title>display: inline-block</title>
-</head>
-<body>
-	<div id="position"> <?= factotial(5); ?> </div>
-	<div id="position"> <?= factotial(6); ?> </div>
-	<div id="position"> <?= factotial(7); ?> </div>
-	<div id="position"> <?= factotial(8); ?> </div>
-	<div id="position"> <?= factotial(9); ?> </div>
-	<div id="position"> Average </div>
-	<div id="position"> <?= average(1,2,3); ?> </div>
-</body>
-</html>
+<div id="position"> <?= factotial(5); ?> </div>
+<div id="position"> <?= factotial(6); ?> </div>
+<div id="position"> <?= factotial(7); ?> </div>
+<div id="position"> <?= factotial(8); ?> </div>
+<div id="position"> <?= factotial(9); ?> </div>
+<div id="position"> Average </div>
+<div id="position"> <?= average(1,2,3); ?> </div>

@@ -13,28 +13,23 @@
 <body>
     <nav id="topNavBar">
         <div class="container">
-            <div class="navbar-header">
-                <a class="noUnderLine navbar-brand" href="/">Основы php</a>
-            </div>
             <div id="navbar" class="collapse navbar-collapse">
-            <?php menu($menu); ?>
+            <?php menu(MAIN_MENU); ?>
             </div>
         </div>
     </nav>
 
     <div id="leftNavBar">
-        <?php menu($menu,'in_column'); ?>
+        <?php menu(MAIN_MENU,'in_column'); ?>
     </div>
 
     <div id="mainPageBlock">
-
-        <?php include $inner_page; ?>
+     <div class="page-header">
+       <?= "<h1>" . MAIN_MENU[CURRENT_PAGE_INDEX]['title'] . "</h1>"?>
+    </div>
+        <?php include CURRENT_PAGE_INDEX . '.php'; ?>
     </div>
 
-<!-- <?= pre_print_r($_SERVER); ?>
-<?= pre_print_r($_SESSION); ?>
-<?= pre_print_r($_COOKIE); ?>
- -->
     <footer id="footer">
         <div class="container">
             <p class="text-muted">© bj bjatta ® 2016 — <?= date('Y'); ?> at tc.belhard.com &#10004;</p>
