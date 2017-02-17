@@ -10,9 +10,10 @@ function menu($menu, $direction='line'){
     if ('line' !== $direction ) $menuStyle = ' style="display: block;">';
 
     echo '<ul class="nav navbar-nav"' . $menuStyle;
+        $tempClass = 'noUnderLine';
+        if ($direction=='line') $tempClass = '';
         foreach ($menu as $key => $value) {
-            if ($direction=='line') echo '<li><a href="' . $value['href'] . '">'. $value['text'].'</a></li>';
-            else echo '<li><a href="' . $value['href'] . '" class = "noUnderLine">'. $value['text'].' v </a></li>';
+            echo '<li><a href="/index.php?page=' . $key . '" class = "{$tempClass}">'. $value['item'].'</a></li>';
         }
     echo '</ul>';
 }
@@ -21,7 +22,7 @@ function isPost(){
 	return ($_SERVER['REQUEST_METHOD'] == 'POST');
 }
 
-function getRequestVariable($key,$value){
+function getRequestVariable($key,$value=''){
     return (!empty($_REQUEST[$key])) ? $_REQUEST[$key] : $value;
 }
 
@@ -81,4 +82,20 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $rows = getRequestVariable('rows',10);
     $color = '#' . str_replace('#','',getRequestVariable('color','#336699'));
     $date = time();
+}
+
+function listWholeDirectory($directoryName,$delimeter=''){
+    echo "<div class=\"folder-tree\"> ";
+    $d = opendir($directoryName);
+    while ($item = readdir($d)) {
+        if ('.' == $item || '..' == $item) continue;
+        if (is_dir($item)) {
+           echo "{$delimeter} &#128449; <strong>$item</strong><br>";
+           listWholeDirectory($directoryName . '/' . $item,$delimeter . '&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;');
+        } else {
+            echo "<a href=\"index.php?page=about&path_to_show=" . rawurlencode($directoryName . '/' . $item) . "\">$delimeter &#128441; $item </a><br>";
+        }
+    }
+    closedir($d);
+    echo '</div>';
 }
