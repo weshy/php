@@ -22,14 +22,47 @@ body * {
     min-width: 8em;
 }
 
+@media all and (max-width: 1232px) {
+
+    #leftNavBar {
+        display: none;
+    }
+    
+    #mainPageBlock {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+    
+    .page-header h1 {
+        margin: 0.2em;
+        padding-left:0;
+        text-align: center;
+    }
+    
+    .instagram-form {
+        width: 33%;
+    }
+
+    div.instagram-photo {
+        width: 33%;
+    }
+
+    div.file-content{
+        right: 0;
+    }
+}
+
 #mainPageBlock {
-    float: left;
+    float: right;
     display: inline-block;
     overflow-y: auto;
     margin: .5em;
     padding: 0;
     height: 80%;
-    width: 80%;
+    width: 88%;
+    position: relative;
 }
 
 #topNavBar * , #footer * , #leftNavBar * {
@@ -136,18 +169,22 @@ table {
 }
 
 .instagram-form {
-    width: 15em;
+    margin: 0.2em;
+    width: 19%;
+    min-width: 14em;
     float: left;
 }
 
 img.instagram-photo {
-    width: 200px;
+    width: 100%;
+    min-width: 14em;
     border-radius: 60% 1% 60% 4% / 25% 1% 25% 4%;
 }
 
 div.instagram-photo {
     margin: 0.2em;
-    width: 210px;
+    width: 19%;
+    min-width: 14em;
     float: left;
 }
 
@@ -171,5 +208,9 @@ div.file-content{
     border-radius: 3%;
     overflow-x: auto;
     padding: 0.2em;
+}
 
+.page-header h1 {
+    margin: 0;
+    padding-left: 2em;
 }
