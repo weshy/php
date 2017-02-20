@@ -1,0 +1,7 @@
+# Это комментарий
+DirectoryIndex index.php index.html about.php
+Options +Indexes
+
+
+# Настройки php
+php_flag display_errors on
